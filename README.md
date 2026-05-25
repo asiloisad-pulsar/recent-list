@@ -22,21 +22,21 @@ The [project-list](https://github.com/asiloisad/pulsar-project-list) package pro
 
 Commands available in `atom-workspace`:
 
-- `recent-list:toggle`: <kbd>Alt+F10</kbd> opens recent list.
+- `recent-list:toggle`: opens recent list.
 
 Commands available in `.recent-list`:
 
-- `select-list:open`: <kbd>Enter</kbd> opens a new window with selected project,
-- `select-list:swap`: <kbd>Alt+Enter</kbd> closes active window and opens a new one with the selected project,
-- `select-list:switch`: <kbd>Ctrl+Enter</kbd> switches to a new window with the selected project,
-- `select-list:append`: <kbd>Shift+Enter</kbd> appends selected project to active window,
-- `select-list:paste`: <kbd>Alt+V</kbd> paste paths into active text-editor,
-- `select-list:dev`: <kbd>Alt+D</kbd> opens a new window with selected project in dev mode,
-- `select-list:safe`: <kbd>Alt+S</kbd> opens a new window with selected project in safe mode,
-- `select-list:external`: <kbd>Alt+F12</kbd> open folders externally (via [open-external](https://github.com/asiloisad/pulsar-open-external)),
-- `select-list:show`: <kbd>Ctrl+F12</kbd> show folders in explorer (via [open-external](https://github.com/asiloisad/pulsar-open-external)),
-- `select-list:update`: <kbd>F5</kbd> update recent list,
-- `select-list:delete`: <kbd>Alt+Delete</kbd> remove selected project from recent list.
+- `select-list:open`: opens a new window with selected project,
+- `select-list:swap`: closes active window and opens a new one with the selected project,
+- `select-list:switch`: switches to a new window with the selected project,
+- `select-list:append`: appends selected project to active window,
+- `select-list:paste`: paste paths into active text-editor,
+- `select-list:dev`: opens a new window with selected project in dev mode,
+- `select-list:safe`: opens a new window with selected project in safe mode,
+- `select-list:external`: open folders externally (via [open-external](https://github.com/asiloisad/pulsar-open-external)),
+- `select-list:show`: show folders in explorer (via [open-external](https://github.com/asiloisad/pulsar-open-external)),
+- `select-list:update`: update recent list,
+- `select-list:delete`: remove selected project from recent list.
 
 ## Filtering
 
@@ -48,7 +48,30 @@ When the [open-external](https://github.com/asiloisad/pulsar-open-external) pack
 
 ## Provided Service `recent-list`
 
-Provides access to the recent projects list manager instance. Other packages can use this to query and interact with the recent projects history.
+Provides access to the recent projects list manager instance. Other packages can use this to open the recent list or query recent projects.
+
+In your `package.json`:
+
+```json
+{
+  "consumedServices": {
+    "recent-list": {
+      "versions": { "1.0.0": "consumeRecentList" }
+    }
+  }
+}
+```
+
+In your main module:
+
+```javascript
+consumeRecentList(recentList) {
+  this.recentList = recentList;
+  return new Disposable(() => { this.recentList = null; });
+}
+```
+
+- `selectList.toggle()`: opens or closes the recent projects panel.
 
 ## Contributing
 
