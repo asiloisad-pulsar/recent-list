@@ -14,7 +14,7 @@ Quick access to recently opened projects.
 
 ## Installation
 
-To install `recent-list` search for [recent-list](https://web.pulsar-edit.dev/packages/recent-list) in the Install pane of the Pulsar settings or run `ppm install recent-list`. Alternatively, you can run `ppm install asiloisad/pulsar-recent-list` to install a package directly from the GitHub repository.
+To install `recent-list` search for [recent-list](https://web.pulsar-edit.dev/packages/recent-list) in the Install pane of the Pulsar settings or run `ppm install recent-list`. Alternatively, you can run `ppm install asiloisad-pulsar/recent-list` to install a package directly from the GitHub repository.
 
 The [project-list](https://github.com/asiloisad-pulsar/project-list) package provides a saved project list with tags, scanning, and glob paths. Both packages share the same open modes and key bindings.
 
