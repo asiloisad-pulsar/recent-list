@@ -2,6 +2,9 @@
 
 Quick access to recently opened projects.
 
+> [!NOTE]
+> This package is in maintenance mode. If you use [Lumine](https://github.com/lumine-code/lumine), you may be interested in [recent-list](https://github.com/lumine-code/recent-list).
+
 ![demo](https://github.com/asiloisad-pulsar/recent-list/raw/master/assets/demo.png)
 
 ## Features
